@@ -58,6 +58,8 @@ public:
     QPushButton *pushButtonAdd;
     QPushButton *pushButton_4;
     QPushButton *pushButton_5;
+    QLabel *labelShowImage;
+    QPushButton *pushButtonopen;
 
     void setupUi(QWidget *MyWidget)
     {
@@ -82,15 +84,15 @@ public:
         labelShow_3->setAlignment(Qt::AlignCenter);
         labeltext3 = new QLabel(MyWidget);
         labeltext3->setObjectName(QStringLiteral("labeltext3"));
-        labeltext3->setGeometry(QRect(786, 168, 58, 15));
+        labeltext3->setGeometry(QRect(770, 168, 90, 15));
         labeltext3->setAlignment(Qt::AlignCenter);
         labeltext2 = new QLabel(MyWidget);
         labeltext2->setObjectName(QStringLiteral("labeltext2"));
-        labeltext2->setGeometry(QRect(636, 168, 58, 15));
+        labeltext2->setGeometry(QRect(620, 168, 90, 15));
         labeltext2->setAlignment(Qt::AlignCenter);
         labeltext1 = new QLabel(MyWidget);
         labeltext1->setObjectName(QStringLiteral("labeltext1"));
-        labeltext1->setGeometry(QRect(486, 168, 58, 15));
+        labeltext1->setGeometry(QRect(470, 168, 90, 15));
         labeltext1->setAlignment(Qt::AlignCenter);
         labelShow_4 = new QLabel(MyWidget);
         labelShow_4->setObjectName(QStringLiteral("labelShow_4"));
@@ -98,7 +100,7 @@ public:
         labelShow_4->setAlignment(Qt::AlignCenter);
         labeltext4 = new QLabel(MyWidget);
         labeltext4->setObjectName(QStringLiteral("labeltext4"));
-        labeltext4->setGeometry(QRect(486, 318, 58, 15));
+        labeltext4->setGeometry(QRect(470, 318, 90, 15));
         labeltext4->setAlignment(Qt::AlignCenter);
         labelShow_5 = new QLabel(MyWidget);
         labelShow_5->setObjectName(QStringLiteral("labelShow_5"));
@@ -122,23 +124,23 @@ public:
         labelShow_9->setAlignment(Qt::AlignCenter);
         labeltext7 = new QLabel(MyWidget);
         labeltext7->setObjectName(QStringLiteral("labeltext7"));
-        labeltext7->setGeometry(QRect(486, 488, 58, 15));
+        labeltext7->setGeometry(QRect(470, 488, 90, 15));
         labeltext7->setAlignment(Qt::AlignCenter);
         labeltext8 = new QLabel(MyWidget);
         labeltext8->setObjectName(QStringLiteral("labeltext8"));
-        labeltext8->setGeometry(QRect(636, 488, 58, 15));
+        labeltext8->setGeometry(QRect(620, 488, 90, 15));
         labeltext8->setAlignment(Qt::AlignCenter);
         labeltext9 = new QLabel(MyWidget);
         labeltext9->setObjectName(QStringLiteral("labeltext9"));
-        labeltext9->setGeometry(QRect(786, 488, 58, 15));
+        labeltext9->setGeometry(QRect(770, 488, 90, 15));
         labeltext9->setAlignment(Qt::AlignCenter);
         labeltext5 = new QLabel(MyWidget);
         labeltext5->setObjectName(QStringLiteral("labeltext5"));
-        labeltext5->setGeometry(QRect(636, 318, 58, 15));
+        labeltext5->setGeometry(QRect(620, 318, 90, 15));
         labeltext5->setAlignment(Qt::AlignCenter);
         labeltext6 = new QLabel(MyWidget);
         labeltext6->setObjectName(QStringLiteral("labeltext6"));
-        labeltext6->setGeometry(QRect(786, 318, 58, 15));
+        labeltext6->setGeometry(QRect(770, 318, 90, 15));
         labeltext6->setAlignment(Qt::AlignCenter);
         labelId = new QLabel(MyWidget);
         labelId->setObjectName(QStringLiteral("labelId"));
@@ -186,6 +188,13 @@ public:
         pushButton_5 = new QPushButton(MyWidget);
         pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
         pushButton_5->setGeometry(QRect(170, 600, 100, 40));
+        labelShowImage = new QLabel(MyWidget);
+        labelShowImage->setObjectName(QStringLiteral("labelShowImage"));
+        labelShowImage->setGeometry(QRect(930, 140, 121, 181));
+        labelShowImage->setAlignment(Qt::AlignCenter);
+        pushButtonopen = new QPushButton(MyWidget);
+        pushButtonopen->setObjectName(QStringLiteral("pushButtonopen"));
+        pushButtonopen->setGeometry(QRect(950, 340, 80, 21));
 
         retranslateUi(MyWidget);
 
@@ -223,6 +232,8 @@ public:
         pushButtonAdd->setText(QApplication::translate("MyWidget", "Add", nullptr));
         pushButton_4->setText(QApplication::translate("MyWidget", "PushButton", nullptr));
         pushButton_5->setText(QApplication::translate("MyWidget", "PushButton", nullptr));
+        labelShowImage->setText(QApplication::translate("MyWidget", "12345", nullptr));
+        pushButtonopen->setText(QApplication::translate("MyWidget", "PushButton", nullptr));
     } // retranslateUi
 
 };

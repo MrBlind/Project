@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../face2 -I. -I../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include -I../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtWidgets -I../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtGui -I../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtSql -I../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../face2 -I. -isystem /usr/local/include -isystem /usr/local/include/opencv -isystem /usr/local/include/opencv2 -I../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include -I../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtWidgets -I../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtGui -I../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtSql -I../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -38,7 +38,7 @@ DISTNAME      = face21.0.0
 DISTDIR = /home/mrblind/MyPro/QTPro/face/build-face2-Desktop_Qt_5_10_0_GCC_64bit-Debug/.tmp/face21.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/lib
-LIBS          = $(SUBLIBS) -L/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/lib -lQt5Widgets -lQt5Gui -lQt5Sql -lQt5Core -lGL -lpthread 
+LIBS          = $(SUBLIBS) /usr/local/lib/libopencv_calib3d.so /usr/local/lib/libopencv_core.so /usr/local/lib/libopencv_features2d.so /usr/local/lib/libopencv_flann.so /usr/local/lib/libopencv_highgui.so /usr/local/lib/libopencv_imgcodecs.so /usr/local/lib/libopencv_imgproc.so /usr/local/lib/libopencv_ml.so /usr/local/lib/libopencv_objdetect.so /usr/local/lib/libopencv_photo.so /usr/local/lib/libopencv_shape.so /usr/local/lib/libopencv_stitching.so /usr/local/lib/libopencv_superres.so /usr/local/lib/libopencv_videoio.so /usr/local/lib/libopencv_video.so /usr/local/lib/libopencv_videostab.so -L/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/lib -lQt5Widgets -lQt5Gui -lQt5Sql -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -793,7 +793,7 @@ moc_dialog.cpp: ../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtWidgets/Q
 		../face2/dialog.h \
 		moc_predefs.h \
 		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/bin/moc
-	/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/mkspecs/linux-g++ -I/home/mrblind/MyPro/QTPro/face/face2 -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtWidgets -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtGui -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtSql -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../face2/dialog.h -o moc_dialog.cpp
+	/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/mkspecs/linux-g++ -I/home/mrblind/MyPro/QTPro/face/face2 -I/usr/local/include -I/usr/local/include/opencv -I/usr/local/include/opencv2 -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtWidgets -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtGui -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtSql -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../face2/dialog.h -o moc_dialog.cpp
 
 moc_mywidget.cpp: ../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtWidgets/QWidget \
 		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtWidgets/qwidget.h \
@@ -901,7 +901,7 @@ moc_mywidget.cpp: ../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtWidgets
 		../face2/mywidget.h \
 		moc_predefs.h \
 		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/bin/moc
-	/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/mkspecs/linux-g++ -I/home/mrblind/MyPro/QTPro/face/face2 -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtWidgets -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtGui -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtSql -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../face2/mywidget.h -o moc_mywidget.cpp
+	/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/mkspecs/linux-g++ -I/home/mrblind/MyPro/QTPro/face/face2 -I/usr/local/include -I/usr/local/include/opencv -I/usr/local/include/opencv2 -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtWidgets -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtGui -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtSql -I/home/mrblind/SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../face2/mywidget.h -o moc_mywidget.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1345,7 +1345,21 @@ mywidget.o: ../face2/mywidget.cpp ../face2/mywidget.h \
 		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtWidgets/QTableView \
-		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtWidgets/qtableview.h
+		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtWidgets/qtableview.h \
+		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtSql/QSqlQueryModel \
+		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtSql/qsqlquerymodel.h \
+		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtSql/qtsqlglobal.h \
+		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtSql/qsqldatabase.h \
+		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtSql/QSqlDatabase \
+		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtSql/QSqlRecord \
+		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtSql/qsqlrecord.h \
+		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtCore/QDebug \
+		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtWidgets/QFileDialog \
+		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtWidgets/qfiledialog.h \
+		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtCore/qdir.h \
+		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtCore/qfileinfo.h \
+		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtWidgets/qdialog.h \
+		../../../../SoftWare/Qt_5_10_0/5.10.0/gcc_64/include/QtGui/QPixmap
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mywidget.o ../face2/mywidget.cpp
 
 moc_dialog.o: moc_dialog.cpp 

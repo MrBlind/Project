@@ -1,14 +1,16 @@
 #include "mywidget.h"
 #include "ui_mywidget.h"
-#include <QSqlQueryModel>
-#include <QSqlDatabase>
-#include <QSqlRecord>
-#include <QDebug>
-#include <QFileDialog>
-#include <QPixmap>
-#include <QLabel>
+
+//#include <opencv2/core/core.hpp>
+//#include <opencv2/highgui/highgui.hpp>
+//#include <opencv/cv.h>
+
+using namespace cv;
 
 extern QSqlDatabase db;
+
+Mat src1;
+VideoCapture Cap;
 
 MyWidget::MyWidget(QWidget *parent) :
     QWidget(parent),
@@ -28,8 +30,29 @@ MyWidget::MyWidget(QWidget *parent) :
     connect(ui->tableView,SIGNAL(clicked(QModelIndex)),this,SLOT(ShowSupplyClicked()));
     db.close();
 
+
+    //this is about image, opencv and display movie
     ui->labelShow_1->setScaledContents(true);
     ui->labelShow_1->setPixmap(QPixmap("image/img.jpg"));
+    ui->labeltext1->setText("2018:03:12");
+
+
+    timer = new QTimer(this);
+    connect(timer,SIGNAL(timeout()),this,SLOT(readFrame()));
+    connect(ui->pushButtonopen,SIGNAL(clicked()),this,SLOT(openCamera()));
+//    connect(ui->
+//    Cap = new VideoCapture(0);
+//    while(1){
+//    Cap >> src1;
+//    waitKey(30);
+//    Mat src1 = imread("image/img.jpg");
+//    cvtColor(src1,src1,CV_BGR2RGB);
+
+//    ui->labelShowImage->setScaledContents(true);
+//    QImage ShowImage((const uchar*)src1.data,src1.cols,src1.rows,
+//                     src1.cols * src1.channels(),QImage::Format_RGB888);
+//    ui->labelShowImage->setPixmap(QPixmap::fromImage(ShowImage));
+//    }
 }
 
 MyWidget::~MyWidget()
@@ -49,3 +72,24 @@ void MyWidget::ShowSupplyClicked()
     ui->lineEditSex->setText(record.value(2).toString());
     ui->lineEditTime->setText(record.value(3).toString());
 }
+
+
+void MyWidget::readFrame()
+{
+    Cap>>src1;
+//    Cap >> src1;
+    cvtColor(src1,src1,CV_BGR2RGB);
+    QImage ShowImage((const uchar*)src1.data,src1.cols,src1.rows,
+                     src1.cols * src1.channels(),QImage::Format_RGB888);
+    ui->labelShowImage->setScaledContents(true);
+    ui->labelShowImage->setPixmap(QPixmap::fromImage(ShowImage));
+//    timer->start(33);
+//    timer->start(33);
+}
+
+void MyWidget::openCamera()
+{
+    Cap.open(0);
+    timer->start(33);
+}
+
